@@ -1,4 +1,4 @@
-# Task Manager — Test technique Fullstack PHP/Symfony + React
+# Task Manager - Test technique Fullstack PHP/Symfony + React
 
 Mini API de gestion de tâches avec un backend Symfony 7 et un frontend React 18 / TypeScript.
 
