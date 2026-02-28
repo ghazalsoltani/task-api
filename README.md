@@ -95,8 +95,17 @@ Pas de tests frontend dans le scope actuel — ce serait une amélioration à aj
 
 **Service API centralisé** : les appels HTTP sont isolés dans `services/taskApi.ts` — pas directement dans les composants. L'URL de l'API est externalisée dans une variable d'environnement (`REACT_APP_API_URL`). Ça facilite la maintenance et le déploiement.
 
-**Mise à jour optimiste** : quand une tâche est créée, elle est ajoutée immédiatement dans le state local sans refaire un appel GET. Ça améliore la réactivité de l'interface.
+**Mise à jour du state sans re-fetch** : après une création réussie (201), la tâche retournée par l'API est ajoutée directement au state local sans recharger toute la liste. Ça évite un appel GET inutile et rend l'interface plus réactive.
 
 **Gestion d'erreurs** : les erreurs de validation retournées par l'API sont affichées sous les champs concernés, pas en message générique.
 
 ---
+## Améliorations possibles
+Si le projet devait évoluer, voici ce que j'ajouterais en priorité :
+
+- PATCH /api/tasks/{id} : marquer une tâche comme terminée (isDone: true)
+- DELETE /api/tasks/{id} : supprimer une tâche
+- Pagination : sur le GET /api/tasks pour gérer un grand volume de tâches
+- Docker : un docker-compose.yml pour lancer le projet en une commande
+- CI/CD : GitHub Actions pour exécuter les tests automatiquement à chaque push
+- Tests frontend : React Testing Library pour tester les composants et les interactions
